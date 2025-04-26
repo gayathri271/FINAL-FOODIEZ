@@ -10,10 +10,10 @@
     <link rel="stylesheet" href="styles.css">
     <!-- <link rel="stylesheet" href="styles.css"> -->
 </head>
-<body>
-    <div class="container py-5" id="loginModal">
+<body class="d-flex align-items-center justify-content-center min-vh-100">
+    <div class="container" id="loginModal">
         <h2 class="text-center">Login to Foodiez</h2>
-        <form id="login-form" class="mt-4 mx-auto" style="max-width: 400px;">
+        <form id="login-form" class="mt-4 mx-auto">
             <div class="mb-3">
                 <label for="login-email" class="form-label">Email</label>
                 <input type="email" id="login-email" class="form-control" placeholder="Enter your email" required>
@@ -23,6 +23,8 @@
                 <input type="password" id="login-password" class="form-control" placeholder="Enter your password" required>
             </div>
             <button type="submit" class="btn btn-primary w-100" id="loginSubmitBtn">Login</button>
+            <button type="button" id="guest-login" class="btn btn-secondary w-100 mt-2">Continue as Guest</button>
+
         </form>
         <p class="text-center mt-3">Don't have an account? <a href="signup.html">Sign Up</a></p>
     </div>
@@ -30,7 +32,7 @@
     <script type="module">
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword ,signInAnonymously } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
 import { getDatabase, ref, get } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-database.js";
 
 // Firebase configuration
@@ -100,6 +102,30 @@ document.getElementById("loginSubmitBtn").addEventListener("click", async (event
         });
     }
 });
+
+document.getElementById("guest-login").addEventListener("click", () => {
+            signInAnonymously(auth)
+                .then(() => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Logged in as Guest',
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+                    setTimeout(() => {
+                        window.location.href = "dashboard.html"; // redirect to your main app page
+                    }, 1500);
+                })
+                .catch((error) => {
+                    console.error("Guest login failed", error);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Login Failed',
+                        text: error.message
+                    });
+                });
+        });
+
 
     </script>
 </body>
