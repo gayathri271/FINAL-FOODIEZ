@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <link rel="stylesheet" href="styles.css">
-    <!-- <link rel="stylesheet" href="styles.css"> -->
 </head>
 <body class="d-flex align-items-center justify-content-center min-vh-100">
     <div class="container" id="loginModal">
@@ -23,7 +22,7 @@
                 <input type="password" id="login-password" class="form-control" placeholder="Enter your password" required>
             </div>
             <button type="submit" class="btn btn-primary w-100" id="loginSubmitBtn">Login</button>
-            <button type="button" id="guest-login" class="btn btn-secondary w-100 mt-2">Continue as Guest</button>
+            <button type="button" id="guest-login" class="btn btn-secondary w-100 mt-2">Login as Guest</button>
 
         </form>
         <p class="text-center mt-3">Don't have an account? <a href="signup.html">Sign Up</a></p>
@@ -103,28 +102,36 @@ document.getElementById("loginSubmitBtn").addEventListener("click", async (event
     }
 });
 
-document.getElementById("guest-login").addEventListener("click", () => {
-            signInAnonymously(auth)
-                .then(() => {
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Logged in as Guest',
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                    setTimeout(() => {
-                        window.location.href = "dashboard.html"; // redirect to your main app page
-                    }, 1500);
-                })
-                .catch((error) => {
-                    console.error("Guest login failed", error);
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Login Failed',
-                        text: error.message
-                    });
-                });
+document.getElementById("guest-login").addEventListener("click", async () => {
+    // Prefill guest credentials
+    const guestEmail = "user@gmail.com";
+    const guestPassword = "123456";
+
+    // Prefill the input fields
+    document.getElementById("login-email").value = guestEmail;
+    document.getElementById("login-password").value = guestPassword;
+
+    // Now, attempt login with those credentials
+    try {
+        const userCredential = await signInWithEmailAndPassword(auth, guestEmail, guestPassword);
+        const user = userCredential.user;
+
+        Swal.fire({
+            title: "Logged in as Guest!",
+            icon: "success",
+        }).then(() => {
+            location.href = "../dashboard/home.html";
         });
+    } catch (error) {
+        Swal.fire({
+            title: "Login Failed",
+            text: error.message,
+            icon: "error",
+        });
+    }
+});
+
+
 
 
     </script>

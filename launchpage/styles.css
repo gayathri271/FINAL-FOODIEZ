@@ -98,7 +98,9 @@ header .btn-primary:hover {
     text-decoration: underline;
 }
 
-@media (max-width: 375px) {
+
+
+@media (max-width: 320px) {
     .container {
         padding: 1.5rem 1rem;
         margin: 1rem;
@@ -112,4 +114,4 @@ header .btn-primary:hover {
         padding: 0.6rem;
         font-size: 1rem;
     }
-}
+} 
