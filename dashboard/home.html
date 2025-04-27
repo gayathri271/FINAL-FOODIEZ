@@ -12,29 +12,33 @@
 <body>
 
     <!-- Navbar  -->
-     <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
-        <div class="container">
-            <a class="navbar-brand" href="#">
-                <i class="fas fa-utensils me-2"></i>Foodiez
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarContent">
-                    <form class="d-flex mx-auto" style="width:50%;">
-                    <input type="text" id="searchInput" class="form-control" placeholder="Search for food...">
-                    </form>
-                </div>
-                <div class="">
-                    <a href="#" class="nav-icon"><i class="fas fa-shopping-cart"id="addtocart"></i></a>
-                    <a href="#" class="nav-icon" data-bs-toggle="modal" data-bs-target="#logoutModal" id="logoutButton">
-                        <i class="fas fa-sign-out-alt"></i> Logout
-                    </a>
-                </div>
-            </div>
-        </div>
-    </nav>
 
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm py-3">
+        <div class="container">
+          <a class="navbar-brand" href="#">
+            <i class="fas fa-utensils me-2"></i>Foodiez
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+      
+          <div class="collapse navbar-collapse justify-content-between" id="navbarContent">
+            <form class="d-flex mx-auto" style="width:50%;">
+              <input type="text" id="searchInput" class="form-control" placeholder="Search for food...">
+            </form>
+      
+            <!-- Cart and Logout icons -->
+            <div class="d-flex flex-column flex-lg-row align-items-start align-items-lg-center mt-3 mt-lg-0 gap-3">
+              <a href="#" class="nav-icon text-orange"><i class="fas fa-shopping-cart" id="addtocart"></i> Cart</a>
+              <a href="#" class="nav-icon text-orange" data-bs-toggle="modal" data-bs-target="#logoutModal" id="logoutButton">
+                <i class="fas fa-sign-out-alt"></i> Logout
+              </a>
+            </div>
+      
+          </div>
+        </div>
+      </nav>
+      
     <!-- Hero Section -->
     <div id="welcomesection" class="container my-5">
          <div class="container-fluid hero-section">
@@ -85,7 +89,7 @@
                 </div>
                 <div class="col-md-3 category-item">
                     <img src="https://www.licious.in/blog/wp-content/uploads/2022/06/chicken-hyderabadi-biryani-01.jpg" alt="Indian Food" class="category-image">
-                    <p class="fw-bold">Indian Food</p>
+                    <p class="fw-bold">Chicken Biryani</p>
                 </div>
                 <div class="col-md-3 category-item">
                     <img src="https://plantbaes.com/wp-content/uploads/2023/07/ROASTED-PUMPKIN-KALE-WARM-SALAD-scaled.jpg.webp" alt="Salads" class="category-image">
@@ -193,11 +197,6 @@ login.addEventListener("click", () => {
     location.href = "./Authentication/login/login.html";
 });
 </script>
-
-
-
-
-
     <script type="module" src="home.js"></script>
 </body>
 </html>

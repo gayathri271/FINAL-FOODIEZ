@@ -590,7 +590,7 @@ const welcomeSection = document.getElementById('welcomesection');
 
 function createFoodCard(food) {
     return `
-    <div class="col-md-6 mb-4">
+    <div class="col-md-6 mb-4" >
         <div class="food-card">
             <div class="d-flex align-items-center">
                 <div class="food-image-wrapper">
