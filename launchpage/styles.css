@@ -35,7 +35,6 @@ header {
 }
 
 header p {
-    color: #555;
     margin: 1rem 0;
 }
 
@@ -44,12 +43,13 @@ header .btn-primary {
     border: none;
     padding: 0.8rem 1.5rem;
     border-radius: 0.5rem;
-    transition: background 0.3s ease;
+
 }
 
 header .btn-primary:hover {
     background-color: #e65a50;
 }
+
 
 .container {
     width: 100%;
@@ -81,7 +81,7 @@ header .btn-primary:hover {
     border: none;
     padding: 0.8rem;
     border-radius: 0.5rem;
-    transition: background-color 0.3s ease;
+    
 }
 
 .btn-primary:hover {
@@ -89,7 +89,7 @@ header .btn-primary:hover {
 }
 
 .text-center a {
-    color: #ff6f61;
+
     font-weight: bold;
     text-decoration: none;
 }
