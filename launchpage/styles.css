@@ -89,7 +89,7 @@ header .btn-primary:hover {
 }
 
 .text-center a {
-
+    /* color: #ff6f61; */
     font-weight: bold;
     text-decoration: none;
 }
